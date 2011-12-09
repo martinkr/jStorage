@@ -1,0 +1,38 @@
+{
+  "name": "jStorage",
+  "version": "1.0",
+  "title": "jQuery.storage - just store it",
+  "author": {
+        "name": "Martin Krause",
+        "url": "https://github.com/martinkr"
+    },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.gnu.org/licenses/gpl-3.0.html",
+    },
+    {
+      "type": "GPL-3.0",
+      "url": "http://www.opensource.org/licenses/MIT",
+    }
+  ],
+  "dependencies": {
+    "jquery": "1.4.1",
+    "jCookie": "1.2"
+  },
+  "description": "jStorage provides an convenient API for storing values. Use the same API for storing your data in localStorage, sessionStorage, cookies (bonus: cookies as localStorage/sessionStorage fallback!) and jQuery.data.",
+
+  "keywords": [
+    "data",
+    "localStorage",
+    "sessionStorage",
+    "cookie",
+    "jQuery.data",
+    "persistent"
+  ],
+  "homepage": "https://github.com/martinkr/jStorage",
+  "files": [
+    "jstorage.js",
+    "jstorage.min.js",
+  ]
+}
