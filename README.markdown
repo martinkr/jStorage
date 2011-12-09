@@ -7,6 +7,7 @@ Use the same API for storing your data in localStorage, sessionStorage, cookies 
 * Create & Update: _jQuery.storage.setItem('key','value','localStorage|sessionStorage|cookie|data');_
 * Delete: _jQuery.storeage.removeItem('key','localStorage|sessionStorage|cookie|data');_
 * Read: _jQuery.storeage.getItem('key','localStorage|sessionStorage|cookie|data');_
+
 Convenient: If you skip the last "type" parameter, jStorage automatically uses the last type you used to store your data with.
 
 ## Requires
