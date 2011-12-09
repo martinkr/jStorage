@@ -6,7 +6,7 @@
  * Use the same API for storing your data in localStorage, sessionStorage,
  * cookies (bonus: cookies as localStorage/sessionStorage fallback!) and jQuery.data.
  *
- * @Version: 0.9
+ * @Version: 1.0
  *
  * @example:
  *  Create,update:
