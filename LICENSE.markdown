@@ -1,8 +1,6 @@
-<a name="README">[jStorage](https://github.com/martinkr/jStorage)</a>
-=======
-
 
 <a name="LICENSE">License</a>
+=======
 Dual licensed under the MIT and GPL licenses.
 
 * MIT - http://www.opensource.org/licenses/mit-license.php
@@ -640,7 +638,7 @@ copy of the Program in return for a fee.
 
 ###                     END OF TERMS AND CONDITIONS
 
-            How to Apply These Terms to Your New Programs
+###            How to Apply These Terms to Your New Programs
 
   If you develop a new program, and you want it to be of the greatest
 possible use to the public, the best way to achieve this is to make it
