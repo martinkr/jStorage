@@ -110,12 +110,12 @@
 					sName: oOptions_.name || null,
 					expires: oOptions_.expires || 'session',
 					secure: oOptions_.secure ? true : false,
-					path: oOptions_.path ? oOptions_.path : false,
-					domain: oOptions_.domain ? oOptions_.domain : false
+					path: oOptions_.path || false,
+					domain: oOptions_.domain || false
 				};
 			};
 
-/**
+	/**
 	 * Reads the stored values
 	 * @private
 	 * @param {String} sKey_, Identifier to grab
