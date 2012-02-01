@@ -22,6 +22,7 @@
  *    Licensed under the MIT license - https://github.com/pivotal/jasmine/MIT.LICENSE
  */
 
+
 describe('jstorage ', function() {
 
   var _sKey = "FOO";
@@ -311,5 +312,35 @@ describe('jstorage ', function() {
     }
 
   });
+
+  /**
+   * length
+   */
+   // it('can return the number of key/value pairs currently present in the list using the last TYPE ',function () {
+   //    expect(jQuery.storage.length.toEqual(0));
+   // });
+
+   it('can return the number of key/value pairs currently present in localStorage',function () {
+      expect(jQuery.storage.length('localStorage').toEqual(0));
+      jQuery.storage.setItem(_sKey, _sValue, 'localStorage');
+      expect(jQuery.storage.length('localStorage').toEqual(1));
+      jQuery.storage.removeItem(_sKey, _sValue, 'localStorage');
+      expect(jQuery.storage.length('localStorage').toEqual(0));
+      jQuery.storage.setItem(_sKey, _sValue, 'localStorage');
+      jQuery.storage.setItem(_sKey, _sValue, 'localStorage');
+      expect(jQuery.storage.length('localStorage').toEqual(1));
+   });
+
+   it('can return the number of key/value pairs currently present in sessionStorage',function () {
+      expect(jQuery.storage.length('sessionStorage').toEqual(0));
+   });
+   
+   it('can return the number of key/value pairs currently present at the cookie',function () {
+      expect(jQuery.storage.length('cookie').toEqual(0));
+   });
+
+   it('can return the number of key/value pairs currently present at the dom-storage',function () {
+      expect(jQuery.storage.length('dom').toEqual(0));
+   });
 
 });

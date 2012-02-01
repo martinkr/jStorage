@@ -6,7 +6,7 @@
  * Use the same API for storing your data in localStorage, sessionStorage,
  * cookies (bonus: cookies as localStorage/sessionStorage fallback!) and jQuery.data.
  *
- * @Version: 1.0
+ * @Version: 1.0 branch "implementing length"
  *
  * @example:
  *  Create,update:
@@ -240,6 +240,53 @@
 
 				return false;
 			};
+		
+		/**
+		 * Returns the number of key-value pairs currently present.
+		 * Pass the 'sType_' to distinguish between the different storages 
+		 * @private
+		 * @param {String || Object}, String: indicates the type ( 'localStorage','sessionStorage','cookie','data')
+		 * Object
+			{
+				type: {String}, 'localStorage','sessionStorage','cookie','data'
+			 }
+		 * @return {Bool}
+		 */
+			var _length = function( oOptions_) {
+				
+				// if no options are present, use the default writing type
+				var _oOpts = _normalizeOptions(oOptions_ || {
+					type: _oDefaults.sType
+				}, false);
+				var _sType = _oOpts.sType;
+
+				switch (_sType) {
+	 
+				case 'data':
+					throw new Error('not implemented')
+					return -1; 
+
+
+				case 'cookie':
+						throw new Error('not implemented')
+					return -1; 
+
+
+
+				case 'sessionStorage':
+				case 'localStorage':
+				
+					throw new Error('not implemented')
+					return -1; 
+
+					window[_sType].setItem(sKey_, sValue_);
+
+					return true;
+
+				}
+
+				return false;
+			};
 
 		/**
 		 * Public API
@@ -272,11 +319,20 @@
 			/**
 			 * API: Deletes a value
 			 * @param {String} sKey_, Identifier to delete
-			 * @param {String} [sType_], storage to read from. Default: last written
+			 * @param {Object|String} oOptions_|sType_, or sType_
 			 * @return {Void}
 			 */
 			removeItem: function(sKey_, oOptions_) {
 				_write(sKey_, null, oOptions_);
+			},
+			
+			/**
+			 * API: Returns the number of key-value pairs currently present
+			 * @param {Object|String} oOptions_|sType_, or sType_
+			 * @return {Number}
+			 */
+			length: function(oOptions_) {
+				return _length(oOptions_);
 			}
 		};
 
