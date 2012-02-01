@@ -115,20 +115,20 @@
 				};
 			};
 
-	/**
-	 * Reads the stored values
-	 * @private
-	 * @param {String} sKey_, Identifier to grab
-	 * @param {String || Object}, String: indicates the type ( 'localStorage','sessionStorage','cookie','data')
-	 * Object {
-			type: {String}, 'localStorage','sessionStorage','cookie','data',
-			expires: {String || Number}, ['session' || days], (cookie)
-			secure: {BOOL}, [false], (cookie)
-			path: {String}, [''], (cookie)
-			domain: {String}, [''],(cookie)
-		 }
-	 * @return {Value}
-	 */
+		/**
+		 * Reads the stored values
+		 * @private
+		 * @param {String} sKey_, Identifier to grab
+		 * @param {String || Object}, String: indicates the type ( 'localStorage','sessionStorage','cookie','data')
+		 * Object {
+				type: {String}, 'localStorage','sessionStorage','cookie','data',
+				expires: {String || Number}, ['session' || days], (cookie)
+				secure: {BOOL}, [false], (cookie)
+				path: {String}, [''], (cookie)
+				domain: {String}, [''],(cookie)
+			 }
+		 * @return {Value}
+		 */
 		var _read = function(sKey_, oOptions_) {
 
 				var _oOpts = _normalizeOptions(oOptions_);
@@ -207,6 +207,7 @@
 					if (sValue_ === null) {
 						return delete(_oData[sKey_]);
 					}
+
 					_oData[sKey_] = sValue_;
 					jQuery(window).data('jStorage', _oData);
 					return true;
@@ -241,17 +242,17 @@
 				return false;
 			};
 		
-		/**
-		 * Returns the number of key-value pairs currently present.
-		 * Pass the 'sType_' to distinguish between the different storages 
-		 * @private
-		 * @param {String || Object}, String: indicates the type ( 'localStorage','sessionStorage','cookie','data')
-		 * Object
-			{
-				type: {String}, 'localStorage','sessionStorage','cookie','data'
-			 }
-		 * @return {Bool}
-		 */
+			/**
+			 * Returns the number of key-value pairs currently present.
+			 * Pass the 'sType_' to distinguish between the different storages 
+			 * @private
+			 * @param {String || Object}, String: indicates the type ( 'localStorage','sessionStorage','cookie','data')
+			 * Object
+				{
+					type: {String}, 'localStorage','sessionStorage','cookie','data'
+				 }
+			 * @return {Bool}
+			 */
 			var _length = function( oOptions_) {
 				
 				// if no options are present, use the default writing type
@@ -259,26 +260,29 @@
 					type: _oDefaults.sType
 				}, false);
 				var _sType = _oOpts.sType;
+				var _iLength = 0;
+				var _sKey, _oData;
 
 				switch (_sType) {
 	 
-				case 'data':
-					throw new Error('not implemented')
-					return -1; 
+					case 'data':
+						_oData = jQuery(window).data('jStorage') || {};
+						for(_sKey in _oData) { _iLength++; }
+						break;
+
+					case 'cookie':
+							throw new Error('not implemented')
+						return -1; 
 
 
-				case 'cookie':
-						throw new Error('not implemented')
-					return -1; 
 
-
-
-				case 'sessionStorage':
-				case 'localStorage':
-					return window[_sType].length;
+					case 'sessionStorage':
+					case 'localStorage':
+						_iLength = window[_sType].length;
+					break;
 				}
 
-				return false;
+				return _iLength;
 			};
 
 		/**

@@ -36,6 +36,7 @@ describe('jstorage ', function() {
 
   afterEach(function() {
     jQuery.storage.removeItem(_sKey, 'data');
+    jQuery.storage.removeItem(_sValue, 'data');
     jQuery.storage.removeItem(_sKey, 'cookie');
     jQuery.storage.removeItem(_sValue, 'cookie');
     jQuery.storage.removeItem(_sKey, 'localStorage');
@@ -368,11 +369,52 @@ describe('jstorage ', function() {
    });
    
    // it('can return the number of key/value pairs currently present at the cookie',function () {
-   //    expect(jQuery.storage.length('cookie').toEqual(0));
+   
+   //    var  _sType = 'cookie';
+
+   //    expect(jQuery.storage.length(_sType)).toEqual(0);
+   //    jQuery.storage.setItem(_sKey, _sValue, _sType);
+      
+   //    expect(jQuery.storage.length(_sType)).toEqual(1);
+   //    jQuery.storage.removeItem(_sKey, _sType);
+      
+   //    expect(jQuery.storage.length(_sType)).toEqual(0);
+
+   //    jQuery.storage.setItem(_sKey, _sValue, _sType);
+   //    jQuery.storage.setItem(_sKey, _sValue, _sType);
+   //    expect(jQuery.storage.length(_sType)).toEqual(1);
+
+   //    jQuery.storage.setItem(_sValue,_sKey, _sType);
+   //    expect(jQuery.storage.length(_sType)).toEqual(2);
+      
+   //    jQuery.storage.removeItem(_sKey, _sType);
+   //    jQuery.storage.removeItem(_sValue, _sType);
+
    // });
 
-   // it('can return the number of key/value pairs currently present at the dom-storage',function () {
-   //    expect(jQuery.storage.length('dom').toEqual(0));
-   // });
+   it('can return the number of key/value pairs currently present at the dom-storage',function () {
+      var  _sType = 'data';
+
+      expect(jQuery.storage.length(_sType)).toEqual(0);
+      jQuery.storage.setItem(_sKey, _sValue, _sType);
+      
+      expect(jQuery.storage.length(_sType)).toEqual(1);
+      jQuery.storage.removeItem(_sKey, _sType);
+      
+      expect(jQuery.storage.length(_sType)).toEqual(0);
+
+      jQuery.storage.setItem(_sKey, _sValue, _sType);
+      jQuery.storage.setItem(_sKey, _sValue, _sType);
+      expect(jQuery.storage.length(_sType)).toEqual(1);
+
+      jQuery.storage.setItem(_sValue,_sKey, _sType);
+      expect(jQuery.storage.length(_sType)).toEqual(2);
+      
+      jQuery.storage.removeItem(_sKey, _sType);
+      jQuery.storage.removeItem(_sValue, _sType);
+
+   });
+   
+    
 
 });
