@@ -275,14 +275,7 @@
 
 				case 'sessionStorage':
 				case 'localStorage':
-				
-					throw new Error('not implemented')
-					return -1; 
-
-					window[_sType].setItem(sKey_, sValue_);
-
-					return true;
-
+					return window[_sType].length;
 				}
 
 				return false;
