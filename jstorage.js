@@ -154,6 +154,7 @@
 					// if(!jQuery.jCookie) {
 					// window.setTimeout( function () { jQuery.storage.getItem(sKey_,oOptions_)} , 100 );
 					// } else {
+					sKey_ = ['jStorage_',sKey_].join('');
 					var _return = jQuery.jCookie(sKey_);
 					// can't parse undefined
 					if (_return) {
@@ -218,6 +219,7 @@
 					// if(!jQuery.jCookie) {
 					// window.setTimeout( function () { jQuery.storage.setItem(sKey_,sValue_,oOptions_)} , 100 );
 					// } else {
+					sKey_ = ['jStorage_',sKey_].join('');
 					if (sValue_ === null) {
 						jQuery.jCookie(sKey_, null);
 						return true;
@@ -241,10 +243,10 @@
 
 				return false;
 			};
-		
+
 			/**
 			 * Returns the number of key-value pairs currently present.
-			 * Pass the 'sType_' to distinguish between the different storages 
+			 * Pass the 'sType_' to distinguish between the different storages
 			 * @private
 			 * @param {String || Object}, String: indicates the type ( 'localStorage','sessionStorage','cookie','data')
 			 * Object
@@ -254,7 +256,7 @@
 			 * @return {Bool}
 			 */
 			var _length = function( oOptions_) {
-				
+
 				// if no options are present, use the default writing type
 				var _oOpts = _normalizeOptions(oOptions_ || {
 					type: _oDefaults.sType
@@ -264,25 +266,25 @@
 				var _sKey, _oData;
 
 				switch (_sType) {
-	 
+
 					case 'data':
 						_oData = jQuery(window).data('jStorage') || {};
 						for(_sKey in _oData) { _iLength++; }
-						break;
+					break;
 
 					case 'cookie':
-							throw new Error('not implemented')
-						return -1; 
-
-
+						_aData = document.cookie.split(';')|| {};
+						var _n = _aData.length;
+						while(_n--) {if(_aData[_n].indexOf('jStorage_') !== -1 ) {_iLength++;}}
+					break;
 
 					case 'sessionStorage':
 					case 'localStorage':
 						_iLength = window[_sType].length;
 					break;
 				}
-
-				return _iLength;
+  
+  				return _iLength;
 			};
 
 		/**
@@ -322,7 +324,7 @@
 			removeItem: function(sKey_, oOptions_) {
 				_write(sKey_, null, oOptions_);
 			},
-			
+
 			/**
 			 * API: Returns the number of key-value pairs currently present
 			 * @param {Object|String} oOptions_|sType_, or sType_
