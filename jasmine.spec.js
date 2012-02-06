@@ -322,15 +322,15 @@ describe('jstorage ', function() {
    // });
 
    it('can return the number of key/value pairs currently present in localStorage',function () {
-      
+
       var  _sType = 'localStorage';
 
       expect(jQuery.storage.length(_sType)).toEqual(0);
       jQuery.storage.setItem(_sKey, _sValue, _sType);
-      
+
       expect(jQuery.storage.length(_sType)).toEqual(1);
       jQuery.storage.removeItem(_sKey, _sType);
-      
+
       expect(jQuery.storage.length(_sType)).toEqual(0);
 
       jQuery.storage.setItem(_sKey, _sValue, _sType);
@@ -339,22 +339,22 @@ describe('jstorage ', function() {
 
       jQuery.storage.setItem(_sValue,_sKey, _sType);
       expect(jQuery.storage.length(_sType)).toEqual(2);
-      
+
       jQuery.storage.removeItem(_sKey, _sType);
       jQuery.storage.removeItem(_sValue, _sType);
 
    });
 
    it('can return the number of key/value pairs currently present in sessionStorage',function () {
-      
+
       var  _sType = 'sessionStorage';
 
       expect(jQuery.storage.length(_sType)).toEqual(0);
       jQuery.storage.setItem(_sKey, _sValue, _sType);
-      
+
       expect(jQuery.storage.length(_sType)).toEqual(1);
       jQuery.storage.removeItem(_sKey, _sType);
-      
+
       expect(jQuery.storage.length(_sType)).toEqual(0);
 
       jQuery.storage.setItem(_sKey, _sValue, _sType);
@@ -363,21 +363,21 @@ describe('jstorage ', function() {
 
       jQuery.storage.setItem(_sValue,_sKey, _sType);
       expect(jQuery.storage.length(_sType)).toEqual(2);
-      
+
       jQuery.storage.removeItem(_sKey, _sType);
       jQuery.storage.removeItem(_sValue, _sType);
    });
-   
+
    it('can return the number of key/value pairs currently present at the cookie',function () {
-   
+
       var  _sType = 'cookie';
 
       expect(jQuery.storage.length(_sType)).toEqual(0);
       jQuery.storage.setItem(_sKey, _sValue, _sType);
-      
+
       expect(jQuery.storage.length(_sType)).toEqual(1);
       jQuery.storage.removeItem(_sKey, _sType);
-      
+
       expect(jQuery.storage.length(_sType)).toEqual(0);
 
       jQuery.storage.setItem(_sKey, _sValue, _sType);
@@ -386,7 +386,7 @@ describe('jstorage ', function() {
 
       jQuery.storage.setItem(_sValue,_sKey, _sType);
       expect(jQuery.storage.length(_sType)).toEqual(2);
-      
+
       jQuery.storage.removeItem(_sKey, _sType);
       jQuery.storage.removeItem(_sValue, _sType);
 
@@ -397,10 +397,10 @@ describe('jstorage ', function() {
 
       expect(jQuery.storage.length(_sType)).toEqual(0);
       jQuery.storage.setItem(_sKey, _sValue, _sType);
-      
+
       expect(jQuery.storage.length(_sType)).toEqual(1);
       jQuery.storage.removeItem(_sKey, _sType);
-      
+
       expect(jQuery.storage.length(_sType)).toEqual(0);
 
       jQuery.storage.setItem(_sKey, _sValue, _sType);
@@ -409,12 +409,12 @@ describe('jstorage ', function() {
 
       jQuery.storage.setItem(_sValue,_sKey, _sType);
       expect(jQuery.storage.length(_sType)).toEqual(2);
-      
+
       jQuery.storage.removeItem(_sKey, _sType);
       jQuery.storage.removeItem(_sValue, _sType);
 
    });
-   
-    
+
+
 
 });

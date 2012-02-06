@@ -6,7 +6,7 @@
  * Use the same API for storing your data in localStorage, sessionStorage,
  * cookies (bonus: cookies as localStorage/sessionStorage fallback!) and jQuery.data.
  *
- * @Version: 1.0 branch "implementing length"
+ * @Version: 1.1b
  *
  * @example:
  *  Create,update:
@@ -15,10 +15,12 @@
  *    jQuery.storage.removeItem('key','localStorage|sessionStorage|cookie|data');
  *  Read:
  *    jQuery.storage.getItem('cookie','localStorage|sessionStorage|cookie|data');
+ *  Length (returns the number of key/value pairs for this specific type):
+ *    jQuery.storage.lenght('cookie');
  *
  * Convenient: If you skip the last "type" parameter, jStorage automatically uses the last type you used to store your data with.
  *
- * Copyright (c) 2010-2011 Martin Krause (jquery.public.mkrause.info)
+ * Copyright (c) 2010-2012 Martin Krause (jquery.public.mkrause.info)
  * Dual licensed under the MIT and GPL licenses.
  *
  * @author Martin Krause public@mkrause.info
@@ -240,7 +242,6 @@
 					return true;
 
 				}
-
 				return false;
 			};
 
@@ -283,7 +284,6 @@
 						_iLength = window[_sType].length;
 					break;
 				}
-  
   				return _iLength;
 			};
 
