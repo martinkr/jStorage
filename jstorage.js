@@ -6,6 +6,9 @@
  * Use the same API for storing your data in localStorage, sessionStorage,
  * cookies (bonus: cookies as localStorage/sessionStorage fallback!) and jQuery.data.
  *
+ * @TODO API:clear()
+ * @TODO STORAGEEVENTS!?
+ *
  * @Version: 1.1b
  *
  * @example:
@@ -20,7 +23,7 @@
  *
  * Convenient: If you skip the last "type" parameter, jStorage automatically uses the last type you used to store your data with.
  *
- * Copyright (c) 2010-2012 Martin Krause (jquery.public.mkrause.info)
+ * Copyright (c) 2011 Martin Krause (jquery.public.mkrause.info)
  * Dual licensed under the MIT and GPL licenses.
  *
  * @author Martin Krause public@mkrause.info
