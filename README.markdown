@@ -7,7 +7,7 @@ Use the same API for storing your data in localStorage, sessionStorage, cookies 
 
 ### Create & Update:
 <pre>
-	_jQuery.storage.setItem('key','value','localStorage|sessionStorage|cookie|data');
+	jQuery.storage.setItem('key','value','localStorage|sessionStorage|cookie|data');
 </pre>
 
 ### Delete
@@ -22,7 +22,7 @@ Use the same API for storing your data in localStorage, sessionStorage, cookies 
 
 ### Length (returns the number of key/value pairs for this specific type)
 <pre>
-	jQuery.storage.lenght('localStorage|sessionStorage|cookie|data');
+	jQuery.storage.length('localStorage|sessionStorage|cookie|data');
 </pre>
 
 Convenient: If you skip the last "type" parameter, jStorage automatically uses the last type you used to store your data with.
