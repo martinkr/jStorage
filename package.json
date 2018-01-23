@@ -17,7 +17,7 @@
     }
   ],
   "dependencies": {
-    "jquery": "1.4.1",
+    "jquery": "*",
     "jCookie": "1.2"
   },
   "description": "jStorage provides an convenient API for storing values. Use the same API for storing your data in localStorage, sessionStorage, cookies (bonus: cookies as localStorage/sessionStorage fallback!) and jQuery.data.",
